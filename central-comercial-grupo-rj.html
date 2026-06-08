@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Comercial · Grupo RJ Compressores</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #0F1E3C;
+  --blue:      #1A3A6E;
+  --mid:       #2554A0;
+  --light:     #3B7DD8;
+  --accent:    #5B9EF5;
+  --bg:        #F2F4F9;
+  --surface:   #FFFFFF;
+  --border:    rgba(26,58,110,.10);
+  --muted:     #6B7A99;
+  --text:      #0F1E3C;
+  --radius:    14px;
+  --radius-sm: 9px;
+  --shadow:    0 2px 14px rgba(15,30,60,.07);
+  --shadow-lg: 0 8px 32px rgba(15,30,60,.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  height: 56px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-mark {
+  width: 30px; height: 30px;
+  background: var(--mid);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+.logo-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: .01em;
+}
+.logo-sub { font-size: 10px; color: rgba(255,255,255,.4); font-weight: 400; }
+.header-pill {
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: .02em;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 55%, var(--mid) 100%);
+  padding: 2.5rem 1.5rem 4.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(91,158,245,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  opacity: .8;
+}
+.hero-eyebrow span {
+  width: 18px; height: 1px;
+  background: var(--accent);
+  opacity: .5;
+}
+.hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
+  line-height: 1.05;
+}
+.hero p {
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── SEARCH ── */
+.search-wrap {
+  max-width: 520px;
+  margin: -24px auto 0;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 14px;
+  box-shadow: var(--shadow-lg);
+}
+.search-box svg { width: 16px; height: 16px; color: var(--muted); flex-shrink: 0; }
+.search-box input {
+  flex: 1;
+  border: none; outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: transparent;
+  padding: 13px 0;
+}
+.search-box input::placeholder { color: var(--muted); }
+#search-clear {
+  font-size: 18px;
+  color: var(--muted);
+  cursor: pointer;
+  display: none;
+  line-height: 1;
+  padding: 2px;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+/* ── LAUNCHER GRID ── */
+.launcher {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+.launcher-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem .75rem .9rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all .18s ease;
+  position: relative;
+  user-select: none;
+}
+.launcher-btn:hover {
+  border-color: var(--light);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.launcher-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 4px 20px rgba(26,58,110,.25);
+  transform: translateY(-2px);
+}
+.launcher-btn .l-icon {
+  font-size: 26px;
+  margin-bottom: 7px;
+  display: block;
+  filter: grayscale(0);
+  transition: transform .18s ease;
+}
+.launcher-btn:hover .l-icon { transform: scale(1.1); }
+.launcher-btn .l-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+}
+.launcher-btn.active .l-label { color: #fff; }
+.launcher-btn .l-count {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  background: var(--bg);
+  color: var(--muted);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s;
+}
+.launcher-btn.active .l-count {
+  background: rgba(255,255,255,.2);
+  color: rgba(255,255,255,.85);
+}
+
+/* ── PANEL ── */
+.panel {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: slideIn .2s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: linear-gradient(90deg, var(--blue), var(--mid));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.panel-header-icon { font-size: 20px; }
+.panel-header-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  flex: 1;
+  letter-spacing: .01em;
+}
+.panel-header-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
+}
+.panel-close {
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.panel-close:hover { background: rgba(255,255,255,.2); }
+
+.item-list { padding: 6px; }
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+  color: inherit;
+}
+.item-row:hover { background: var(--bg); }
+.item-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.item-body { flex: 1; min-width: 0; }
+.item-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.badge-drive   { background: #e8f5e9; color: #2a6637; }
+.badge-github  { background: #eef1ff; color: #3a3fa8; }
+.badge-notion  { background: #fff3e0; color: #b45309; }
+.badge-miro    { background: #fce4ec; color: #b5195f; }
+.badge-word    { background: #e8f0fe; color: #1a56c4; }
+.item-ext {
+  color: var(--muted);
+  opacity: .5;
+  flex-shrink: 0;
+}
+.item-ext svg { width: 14px; height: 14px; }
+
+.item-row.disabled {
+  opacity: .45;
+  cursor: default;
+  pointer-events: none;
+}
+.item-soon {
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 2px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* ── SEARCH RESULTS ── */
+.search-results { animation: slideIn .2s ease; }
+.search-section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 10px 6px 4px;
+}
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: 14px;
+}
+.empty-state svg { width: 36px; height: 36px; opacity: .25; display: block; margin: 0 auto 10px; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .launcher { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .launcher-btn { padding: .9rem .5rem .75rem; }
+  .launcher-btn .l-icon { font-size: 22px; }
+  .main { padding: 1.5rem 1rem 4rem; }
+  .hero { padding: 2rem 1rem 4rem; }
+  .search-wrap { padding: 0 1rem; }
+  header { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="logo-name">Grupo RJ Compressores</div>
+      <div class="logo-sub">Central Comercial</div>
+    </div>
+  </div>
+  <span class="header-pill">Uso interno</span>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow"><span></span>Setor Comercial<span></span></div>
+  <h1>Central Comercial</h1>
+  <p>Templates, ferramentas, fluxos e documentos do time em um só lugar.</p>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="busca" placeholder="Buscar template, ferramenta, documento…" autocomplete="off">
+    <button id="search-clear">×</button>
+  </div>
+</div>
+
+<main class="main">
+  <div class="launcher" id="launcher"></div>
+  <div id="panel-container"></div>
+</main>
+
+<footer>
+  Central Comercial · Grupo RJ Compressores · 2026
+</footer>
+
+<script>
+const CATEGORIAS = [
+  {
+    id: 'estrutura',
+    label: 'Estrutura',
+    icon: '👥',
+    desc: 'Organograma e responsabilidades',
+    itens: [
+      {
+        nome: 'Organograma Comercial',
+        desc: 'Cargos, hierarquia e territórios do time',
+        icon: '🏢',
+        bg: '#EBF2FF',
+        link: 'https://rjcompressores.github.io/cargos-comercial/',
+        badge: 'github',
+        label: 'GitHub Pages',
+      },
+    ],
+  },
+  {
+    id: 'templates',
+    label: 'Templates',
+    icon: '📄',
+    desc: 'Propostas e documentos Word',
+    itens: [
+      {
+        nome: 'Proposta de Locação',
+        desc: 'Template Word com calculadora fiscal',
+        icon: '📋',
+        bg: '#EBF2FF',
+        link: 'https://docs.google.com/document/d/1AMnMiEurIXOzymG0B8uA7n8EyFWCol1P/edit?usp=sharing&rtpof=true&sd=true',
+        badge: 'word',
+        label: 'Word · Drive',
+      },
+      {
+        nome: 'Proposta de Venda',
+        desc: 'Template Word para venda de equipamentos',
+        icon: '📋',
+        bg: '#EBF2FF',
+        link: 'https://docs.google.com/document/d/1yg5i7awhE2gAf2eefJ4qKjPVNyZE0de5/edit?usp=sharing&rtpof=true&sd=true',
+        badge: 'word',
+        label: 'Word · Drive',
+      },
+      {
+        nome: 'Proposta Caça-Vazamento',
+        desc: 'Template para serviço de detecção de vazamentos',
+        icon: '🔍',
+        bg: '#E8F7EF',
+        link: 'https://docs.google.com/document/d/1HTNxpaAW6F4I4_2DpbL3lV4YmCQij0nG/edit?usp=sharing&rtpof=true&sd=true',
+        badge: 'word',
+        label: 'Word · Drive',
+      },
+      {
+        nome: 'Planos de Manutenção',
+        desc: 'Template para contratos e planos de manutenção',
+        icon: '🔧',
+        bg: '#FFF3E8',
+        link: 'https://docs.google.com/document/d/1tUhlCCOM4ScLIlAkWy8qyog97nxg08e3/edit?usp=sharing&rtpof=true&sd=true',
+        badge: 'word',
+        label: 'Word · Drive',
+      },
+    ],
+  },
+  {
+    id: 'ferramentas',
+    label: 'Ferramentas',
+    icon: '🧮',
+    desc: 'Calculadoras e guias online',
+    itens: [
+      {
+        nome: 'Calculadora de Locação',
+        desc: 'Preço de aluguel com margens e dedução fiscal',
+        icon: '🧮',
+        bg: '#E8F7EF',
+        link: 'https://rjcompressores.github.io/calculadora-locacao/',
+        badge: 'github',
+        label: 'GitHub Pages',
+      },
+      {
+        nome: 'Guia de Cálculo Payback',
+        desc: 'Cálculo de retorno para venda de equipamentos',
+        icon: '📊',
+        bg: '#E8F7EF',
+        link: 'https://rjcompressores.github.io/guia-calculo-payback/',
+        badge: 'github',
+        label: 'GitHub Pages',
+      },
+      {
+        nome: 'Playbook de Cadências',
+        desc: 'Sequências de prospecção e follow-up por canal',
+        icon: '📘',
+        bg: '#F0EBFF',
+        link: 'https://rjcompressores.github.io/playbook-unificado-grupo-rj/',
+        badge: 'github',
+        label: 'GitHub Pages',
+      },
+      {
+        nome: 'Folhas de Dados Metalplan',
+        desc: 'Fichas técnicas por modelo e linha de produto',
+        icon: '📂',
+        bg: '#FFF3E8',
+        link: 'https://drive.google.com/drive/folders/1uTr94lSAegni2auWjoC4JpDQb9YdQjwW?usp=sharing',
+        badge: 'drive',
+        label: 'Google Drive',
+      },
+    ],
+  },
+  {
+    id: 'processos',
+    label: 'Processos',
+    icon: '🔄',
+    desc: 'Fluxos e procedimentos operacionais',
+    itens: [
+      {
+        nome: 'Fluxos Comerciais (visual)',
+        desc: 'Mapa completo de todos os fluxos no Miro',
+        icon: '🗺️',
+        bg: '#FFEBF5',
+        link: 'https://miro.com/app/board/uXjVGRszkK4=/?moveToWidget=3458764656394354371&cot=14',
+        badge: 'miro',
+        label: 'Miro',
+      },
+      {
+        nome: 'Fluxos por Função',
+        desc: 'SDR, Vendedor Externo e Orçamentista',
+        icon: '📑',
+        bg: '#FFF3E8',
+        link: 'https://app.notion.com/p/bruno-rjcompressores/Fluxos-por-Fun-o-37587e217fdb805e8b64c42801449659?source=copy_link',
+        badge: 'notion',
+        label: 'Notion',
+      },
+      {
+        nome: 'Contrato de Manutenção — PMP',
+        desc: 'Processo para PMP, inspeção e visitas técnicas',
+        icon: '📝',
+        bg: '#FFF3E8',
+        link: 'https://app.notion.com/p/bruno-rjcompressores/CONTRATO-DE-MANUTEN-O-PMP-INSPE-O-OU-VISITAS-2ed87e217fdb806ca980dc77fea68931?source=copy_link',
+        badge: 'notion',
+        label: 'Notion',
+      },
+    ],
+  },
+  {
+    id: 'treinamento',
+    label: 'Treinamento',
+    icon: '🎓',
+    desc: 'Materiais de capacitação da equipe',
+    itens: [
+      {
+        nome: 'Treinamentos Metalplan',
+        desc: 'Materiais e conteúdos de capacitação técnica',
+        icon: '🎓',
+        bg: '#EEF1FF',
+        link: 'https://app.notion.com/p/bruno-rjcompressores/TREINAMENTOS-2e987e217fdb80cdb3c2dffa5b7434e3?source=copy_link',
+        badge: 'notion',
+        label: 'Notion',
+      },
+    ],
+  },
+];
+
+// ── state
+let activeId = null;
+
+// ── build launcher
+function buildLauncher() {
+  const el = document.getElementById('launcher');
+  el.innerHTML = '';
+  CATEGORIAS.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'launcher-btn' + (activeId === cat.id ? ' active' : '');
+    btn.innerHTML = `
+      <span class="l-count">${cat.itens.length}</span>
+      <span class="l-icon">${cat.icon}</span>
+      <div class="l-label">${cat.label}</div>
+    `;
+    btn.addEventListener('click', () => togglePanel(cat.id));
+    el.appendChild(btn);
+  });
+}
+
+// ── build panel
+function buildPanel(catId) {
+  const container = document.getElementById('panel-container');
+  const cat = CATEGORIAS.find(c => c.id === catId);
+  if (!cat) { container.innerHTML = ''; return; }
+
+  const extSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+  const rows = cat.itens.map(item => {
+    if (!item.link) {
+      return `<div class="item-row disabled">
+        <div class="item-icon" style="background:${item.bg}">${item.icon}</div>
+        <div class="item-body">
+          <div class="item-name">${item.nome}</div>
+          <div class="item-desc">${item.desc}</div>
+        </div>
+        <span class="item-soon">🔒 Em breve</span>
+      </div>`;
+    }
+    return `<a class="item-row" href="${item.link}" target="_blank" rel="noopener">
+      <div class="item-icon" style="background:${item.bg}">${item.icon}</div>
+      <div class="item-body">
+        <div class="item-name">${item.nome}</div>
+        <div class="item-desc">${item.desc}</div>
+      </div>
+      <span class="item-badge badge-${item.badge}">${item.label}</span>
+      <span class="item-ext">${extSvg}</span>
+    </a>`;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-header-icon">${cat.icon}</span>
+        <div>
+          <div class="panel-header-title">${cat.label}</div>
+          <div class="panel-header-desc">${cat.desc}</div>
+        </div>
+        <button class="panel-close" id="panel-close">×</button>
+      </div>
+      <div class="item-list">${rows}</div>
+    </div>`;
+
+  document.getElementById('panel-close').addEventListener('click', () => {
+    activeId = null;
+    buildLauncher();
+    document.getElementById('panel-container').innerHTML = '';
+  });
+}
+
+function togglePanel(catId) {
+  if (activeId === catId) {
+    activeId = null;
+    document.getElementById('panel-container').innerHTML = '';
+  } else {
+    activeId = catId;
+    buildPanel(catId);
+  }
+  buildLauncher();
+}
+
+// ── search
+const searchInput = document.getElementById('busca');
+const clearBtn = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', () => {
+  const termo = searchInput.value.trim().toLowerCase();
+  clearBtn.style.display = termo ? 'block' : 'none';
+
+  if (!termo) {
+    document.getElementById('panel-container').innerHTML = '';
+    if (activeId) buildPanel(activeId);
+    buildLauncher();
+    return;
+  }
+
+  // hide launcher indicator
+  document.getElementById('launcher').style.opacity = '.35';
+  document.getElementById('launcher').style.pointerEvents = 'none';
+
+  const extSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+  let html = '<div class="search-results">';
+  let total = 0;
+
+  CATEGORIAS.forEach(cat => {
+    const hits = cat.itens.filter(i =>
+      i.nome.toLowerCase().includes(termo) ||
+      i.desc.toLowerCase().includes(termo) ||
+      cat.label.toLowerCase().includes(termo)
+    );
+    if (!hits.length) return;
+    total += hits.length;
+    html += `<div class="search-section-label">${cat.icon} ${cat.label}</div>
+      <div class="panel" style="margin-bottom:10px">
+        <div class="item-list">`;
+    hits.forEach(item => {
+      if (!item.link) {
+        html += `<div class="item-row disabled">
+          <div class="item-icon" style="background:${item.bg}">${item.icon}</div>
+          <div class="item-body"><div class="item-name">${item.nome}</div><div class="item-desc">${item.desc}</div></div>
+          <span class="item-soon">🔒 Em breve</span>
+        </div>`;
+      } else {
+        html += `<a class="item-row" href="${item.link}" target="_blank" rel="noopener">
+          <div class="item-icon" style="background:${item.bg}">${item.icon}</div>
+          <div class="item-body"><div class="item-name">${item.nome}</div><div class="item-desc">${item.desc}</div></div>
+          <span class="item-badge badge-${item.badge}">${item.label}</span>
+          <span class="item-ext">${extSvg}</span>
+        </a>`;
+      }
+    });
+    html += '</div></div>';
+  });
+
+  if (!total) {
+    html += `<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Nenhum resultado para "<strong>${termo}</strong>"
+    </div>`;
+  }
+
+  html += '</div>';
+  document.getElementById('panel-container').innerHTML = html;
+});
+
+clearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  clearBtn.style.display = 'none';
+  document.getElementById('launcher').style.opacity = '1';
+  document.getElementById('launcher').style.pointerEvents = '';
+  document.getElementById('panel-container').innerHTML = '';
+  if (activeId) buildPanel(activeId);
+  buildLauncher();
+});
+
+// ── init
+buildLauncher();
+</script>
+</body>
+</html>
