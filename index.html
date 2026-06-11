@@ -166,7 +166,7 @@ header {
 
 /* ── MAIN ── */
 .main {
-  max-width: 860px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 2rem 1.5rem 5rem;
 }
@@ -174,15 +174,15 @@ header {
 /* ── LAUNCHER GRID ── */
 .launcher {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
   margin-bottom: 2rem;
 }
 .launcher-btn {
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.1rem .75rem .9rem;
+  padding: 1.85rem 1rem 1.55rem;
   text-align: center;
   cursor: pointer;
   transition: all .18s ease;
@@ -201,8 +201,8 @@ header {
   transform: translateY(-2px);
 }
 .launcher-btn .l-icon {
-  font-size: 26px;
-  margin-bottom: 7px;
+  font-size: 38px;
+  margin-bottom: 12px;
   display: block;
   filter: grayscale(0);
   transition: transform .18s ease;
@@ -210,7 +210,7 @@ header {
 .launcher-btn:hover .l-icon { transform: scale(1.1); }
 .launcher-btn .l-label {
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text);
   line-height: 1.2;
@@ -218,12 +218,12 @@ header {
 .launcher-btn.active .l-label { color: #fff; }
 .launcher-btn .l-count {
   position: absolute;
-  top: 8px; right: 8px;
-  font-size: 10px;
+  top: 10px; right: 10px;
+  font-size: 11px;
   font-weight: 500;
   background: var(--bg);
   color: var(--muted);
-  width: 18px; height: 18px;
+  width: 20px; height: 20px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: all .18s;
@@ -384,9 +384,9 @@ footer {
 
 /* ── MOBILE ── */
 @media (max-width: 600px) {
-  .launcher { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .launcher-btn { padding: .9rem .5rem .75rem; }
-  .launcher-btn .l-icon { font-size: 22px; }
+  .launcher { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .launcher-btn { padding: 1.4rem .75rem 1.15rem; }
+  .launcher-btn .l-icon { font-size: 32px; }
   .main { padding: 1.5rem 1rem 4rem; }
   .hero { padding: 2rem 1rem 4rem; }
   .search-wrap { padding: 0 1rem; }
